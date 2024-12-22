@@ -1,8 +1,8 @@
 
-Mask Detection - v1 2024-12-21 3:47am
+Mask Detection - v2 2024-12-22 5:20pm
 ==============================
 
-This dataset was exported via roboflow.com on December 20, 2024 at 7:50 PM GMT
+This dataset was exported via roboflow.com on December 22, 2024 at 9:21 AM GMT
 
 Roboflow is an end-to-end computer vision platform that helps you
 * collaborate with your team on computer vision projects
@@ -17,7 +17,7 @@ visit https://github.com/roboflow/notebooks
 
 To find over 100k other datasets and pre-trained models, visit https://universe.roboflow.com
 
-The dataset includes 593 images.
+The dataset includes 2036 images.
 Mask are annotated in YOLOv8 format.
 
 The following pre-processing was applied to each image:
@@ -25,6 +25,8 @@ The following pre-processing was applied to each image:
 * Resize to 640x640 (Stretch)
 
 The following augmentation was applied to create 3 versions of each source image:
-* Random rotation of between -15 and +15 degrees
+* Random rotation of between -45 and +45 degrees
+* Random brigthness adjustment of between -15 and +15 percent
+* Salt and pepper noise was applied to 0.5 percent of pixels
 
 

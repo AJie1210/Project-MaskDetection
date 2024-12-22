@@ -7,10 +7,10 @@ def main():
     # 開始訓練
     model.train(
         data='data.yaml',
-        epochs=50,
+        epochs=100,
         imgsz=640,
         batch=16,
-        name='mask_detection_run2',
+        name='mask_detection_run-100epochs1-m',
         project='mask_detection_results'
     )
 
