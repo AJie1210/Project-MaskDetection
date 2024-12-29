@@ -2,7 +2,7 @@ import cv2
 from ultralytics import YOLO
 
 # 載入訓練好的 YOLOv8 模型
-model = YOLO('C:\\Users\\Wayne\\Documents\\GitHub\\Project-MaskDetection\\mask_detection_results\\mask_detection_run-100epochs1-L\\weights\\best.pt')  # 替換為您的模型路徑
+model = YOLO('C:\\Users\\Wayne\\Documents\\GitHub\\Project-MaskDetection\\mask_detection_results\\mask_detection_run-100epochs1-m\\weights\\best.pt')  # 替換為您的模型路徑
 
 # 指定影片檔案的路徑
 video_path = 'C:\\Users\\Wayne\\Videos\\Captures\\Japan.mp4'  # 替換為您的影片檔案路徑
@@ -15,6 +15,10 @@ if not cap.isOpened():
     print(f"無法開啟影片檔案: {video_path}")
     exit()
 
+# 獲取影片的 FPS
+fps = cap.get(cv2.CAP_PROP_FPS)
+fps_text = f"FPS: {fps:.2f}"
+
 while True:
     ret, frame = cap.read()
     if not ret:
@@ -26,6 +30,18 @@ while True:
 
     # 繪製預測結果
     annotated_frame = results[0].plot()
+
+    # 在左上角加入影片 FPS
+    cv2.putText(
+        annotated_frame,                    # 圖像
+        fps_text,                           # 顯示文字
+        (10, 30),                           # 文字位置 (x, y)
+        cv2.FONT_HERSHEY_SIMPLEX,           # 字體
+        1,                                  # 字體大小
+        (0, 255, 0),                        # 顏色 (綠色)
+        2,                                  # 字體粗細
+        cv2.LINE_AA                         # 線條類型
+    )
 
     # 顯示影像
     cv2.imshow('Mask Detection', annotated_frame)
