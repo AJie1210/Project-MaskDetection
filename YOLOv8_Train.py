@@ -12,18 +12,15 @@ def main():
         batch=16,
         name='mask_detection_run-150epochs1-L',
         project='mask_detection_results',
-        lr0=0.01,                     # 初始學習率
-        lrf=0.01,                     # 最終學習率
-        momentum=0.937,               # 動量
-        weight_decay=0.0005,          # 權重衰減
-        optimizer='AdamW',            # 優化器
-        patience=15,                  # 早停耐心值
-        augment=True,                 # 啟用數據增強
-        workers=8,                    # 資料加載器工作數
-        cache=True,                   # 啟用緩存
-        device=0,                     # 使用第一個 GPU
-        verbose=True,                 # 啟用詳細輸出
-        freeze=None,                  # 不凍結任何層
+        patience=15,                     # 早停耐心值
+        lr0=0.01,                        # 初始學習率
+        lrf=0.01,                        # 最終學習率
+        momentum=0.937,                  # 動量
+        weight_decay=0.0005,             # 權重衰減
+        optimizer='AdamW',               # 優化器
+        augment=True,                    # 啟用數據增強
+        device=0,                        # 指定 GPU（0 為預設）
+        workers=8,                       # 數據加載工人數量
     )
 
 if __name__ == '__main__':
