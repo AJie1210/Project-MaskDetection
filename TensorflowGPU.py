@@ -8,3 +8,7 @@ print("Num GPUs Available:", len(tf.config.experimental.list_physical_devices('G
 
 # 列出所有 GPU 裝置
 print("Physical Devices:", tf.config.experimental.list_physical_devices('GPU'))
+
+print(tf.sysconfig.get_build_info()["cuda_version"])  # CUDA 版本
+print(tf.sysconfig.get_build_info()["cudnn_version"])  # cuDNN 版本
+
