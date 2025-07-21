@@ -3,8 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib
 
-matplotlib.rcParams['font.family'] = 'Microsoft JhengHei'  # ✅ 顯示繁體中文
-matplotlib.rcParams['axes.unicode_minus'] = False          # ✅ 顯示負號
+matplotlib.rcParams['font.family'] = 'Microsoft JhengHei'  # 顯示繁體中文
+matplotlib.rcParams['axes.unicode_minus'] = False          # 顯示負號
 
 st.set_page_config(page_title="口罩配戴統計儀表板", layout="wide")
 st.title("😷 口罩配戴追蹤與統計儀表板")

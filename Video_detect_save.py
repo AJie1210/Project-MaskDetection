@@ -3,7 +3,7 @@ from ultralytics import YOLO
 from datetime import datetime
 import csv
 
-# 載入訓練好的 YOLOv8 模型
+# 載入 YOLOv8 模型
 model = YOLO(r'C:\Users\ytes6\OneDrive\文件\GitHub\Project-MaskDetection\mask_detection_results\mask_detection_run-100epochs1-L\weights\best.pt')
 
 # 指定影片路徑
