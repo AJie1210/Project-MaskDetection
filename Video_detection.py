@@ -5,7 +5,7 @@ from ultralytics import YOLO
 model = YOLO(r'C:\Users\ytes6\OneDrive\文件\GitHub\Project-MaskDetection\mask_detection_results\mask_detection_run-100epochs1-L\weights\best.pt')  # 替換為您的模型路徑
 
 # 指定影片檔案的路徑
-video_path = r'C:\Users\ytes6\Videos\Captures\videoplayback.mp4'  # 替換為您的影片檔案路徑
+video_path = r'C:\Users\ytes6\Videos\Captures\videoplayback (1).mp4'  # 替換為您的影片檔案路徑
 
 # 開啟影片檔案
 cap = cv2.VideoCapture(video_path)
