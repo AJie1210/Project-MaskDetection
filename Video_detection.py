@@ -2,10 +2,10 @@ import cv2
 from ultralytics import YOLO
 
 # 載入訓練好的 YOLOv8 模型
-model = YOLO('C:\\Users\\Wayne\\Documents\\GitHub\\Project-MaskDetection\\mask_detection_results\\mask_detection_run-50epochs1-s\\weights\\best.pt')  # 替換為您的模型路徑
+model = YOLO(r'C:\Users\ytes6\OneDrive\文件\GitHub\Project-MaskDetection\mask_detection_results\mask_detection_run-50epochs1-m\weights\best.pt')  # 替換為您的模型路徑
 
 # 指定影片檔案的路徑
-video_path = 'C:\\Users\\Wayne\\Videos\\Captures\\Japan.mp4'  # 替換為您的影片檔案路徑
+video_path = r'C:\Users\ytes6\Videos\Captures\videoplayback.mp4'  # 替換為您的影片檔案路徑
 
 # 開啟影片檔案
 cap = cv2.VideoCapture(video_path)
