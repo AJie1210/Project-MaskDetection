@@ -4,10 +4,10 @@ from datetime import datetime
 import csv
 
 # 載入 YOLOv8 模型
-model = YOLO(r'C:\Users\ytes6\OneDrive\文件\GitHub\Project-MaskDetection\mask_detection_results\mask_detection_run-100epochs1-L\weights\best.pt')
+model = YOLO(r'C:\Users\ytes6\OneDrive\文件\GitHub\Project-MaskDetection\mask_detection_results\mask_detection_run-100epochs1-m\weights\best.pt')
 
 # 指定影片路徑
-video_path = r'C:\Users\ytes6\Videos\Captures\videoplayback (1).mp4'
+video_path = r'C:\Users\ytes6\Videos\Captures\videoplayback (2).mp4'
 cap = cv2.VideoCapture(video_path)
 
 # 建立 CSV 紀錄檔案
@@ -26,19 +26,18 @@ model.trackers = 'bytetrack.yaml'
 fps = cap.get(cv2.CAP_PROP_FPS)
 fps_text = f"FPS: {fps:.2f}"
 
-# 類別對應字典
 class_map = {
-    0: "masked",
-    1: "no_mask",
-    2: "incorrect_mask"
+    0: "incorrect_mask",
+    1: "masked",
+    2: "no_mask"
 }
 
-# 顏色對應（BGR）
 color_map = {
-    0: (0, 255, 0),     # 綠色：配戴正確
-    1: (0, 0, 255),     # 紅色：沒戴
-    2: (0, 165, 255)    # 橘色：配戴不正確
+    0: (255, 0, 0),
+    1: (0, 255, 0),
+    2: (0, 0, 255)
 }
+
 
 while cap.isOpened():
     ret, frame = cap.read()

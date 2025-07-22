@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 3
+names: ['Incorrect_Mask', 'Mask', 'No_Mask']
+
+roboflow:
+  workspace: wayne-okrio
+  project: mask-detection-fuizi
+  version: 3
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/wayne-okrio/mask-detection-fuizi/dataset/3
