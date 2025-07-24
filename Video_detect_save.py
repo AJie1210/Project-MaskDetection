@@ -7,7 +7,7 @@ import csv
 model = YOLO(r'C:\Users\ytes6\OneDrive\文件\GitHub\Project-MaskDetection\mask_detection_results\mask_detection_run-100epochs1-m\weights\best.pt')
 
 # 指定影片路徑
-video_path = r'C:\Users\ytes6\Videos\Captures\videoplayback (2).mp4'
+video_path = r'C:\Users\ytes6\Videos\Captures\videoplayback (1).mp4'
 cap = cv2.VideoCapture(video_path)
 
 # 建立 CSV 紀錄檔案
@@ -26,11 +26,6 @@ model.trackers = 'bytetrack.yaml'
 fps = cap.get(cv2.CAP_PROP_FPS)
 fps_text = f"FPS: {fps:.2f}"
 
-class_map = {
-    0: "incorrect_mask",
-    1: "masked",
-    2: "no_mask"
-}
 
 color_map = {
     0: (255, 0, 0),
@@ -58,19 +53,15 @@ while cap.isOpened():
             conf = float(box.conf[0])
             now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-            # 類別轉換文字與顏色
-            label = class_map.get(cls_id, "unknown")
             color = color_map.get(cls_id, (255, 255, 255))
 
-            # 顯示 ID 與分類
-            x, y = int(box.xyxy[0][0]), int(box.xyxy[0][1])
-            cv2.putText(annotated, f"ID:{track_id} {label}", (x, y - 10),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.8, color, 2)
 
             # 僅記錄第一次出現的 ID
             if track_id not in logged_ids:
                 logged_ids[track_id] = cls_id
-                csv_writer.writerow([now, track_id, label, f"{conf:.2f}"])
+                # 將類別 ID 直接紀錄為文字，方便統計
+                status_label = ['Incorrect_Mask', 'Mask', 'No_Mask'][cls_id] if cls_id in [0, 1, 2] else 'unknown'
+                csv_writer.writerow([now, track_id, status_label, f"{conf:.2f}"])
 
     # 顯示 FPS
     cv2.putText(annotated, fps_text, (10, 30),
